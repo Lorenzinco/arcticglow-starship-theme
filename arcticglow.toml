@@ -1,0 +1,127 @@
+command_timeout = 1000
+palette = "arcticglow"
+add_newline = false
+
+format = """
+$status\
+$os\
+$python\
+$username\
+$directory\
+$vcs\
+$character"""
+
+right_format = ""
+
+[palettes.arcticglow]
+base = "15"   # bright white
+text = "0"    # black
+accent = "4"  # blue
+red = "1"     # red
+yellow = "3"  # yellow
+green = "10"  # bright green
+blue = "4"    # blue
+
+[status]
+disabled = false
+symbol = "  "
+success_symbol = " "
+format = "[](fg:base)[$symbol]($style)"
+style = "fg:red bg:base"
+map_symbol = false
+
+[os]
+disabled = false
+format = "[$symbol]($style)[ ](bg:base)[](fg:base bg:accent)"
+style = "fg:accent bg:base"
+
+[os.symbols]
+Ubuntu = ""
+Fedora = ""
+CentOS = ""
+Arch = ""
+openSUSE = ""
+Debian = ""
+Gentoo = ""
+Alpine = ""
+Raspbian = ""
+Macos = ""
+Linux = ""
+Windows = ""
+Unknown = "?"
+
+[username]
+disabled = false
+show_always = true
+format = "[ $user]($style)[ ]($style)[](fg:prev_bg bg:prev_fg)"
+style_user = "fg:prev_fg bg:prev_bg"
+style_root = "fg:prev_fg bg:prev_bg"
+
+[python]
+symbol = " "
+format = "([ $symbol$virtualenv]($style)[ ]($style)[](fg:prev_bg bg:prev_fg))"
+style = "fg:base bg:accent"
+detect_extensions = []
+detect_files = []
+detect_folders = []
+detect_env_vars = ["VIRTUAL_ENV"]
+
+[directory]
+truncation_length = 1
+truncate_to_repo = false
+format = "[ $path]($style)"
+repo_root_format = "[ $before_root_path$repo_root$path ]($style)"
+style = "fg:prev_fg bg:prev_bg"
+repo_root_style = "fg:prev_fg bg:prev_bg"
+before_repo_root_style = "fg:prev_fg bg:prev_bg"
+read_only = ""
+truncation_symbol = ""
+home_symbol = "~"
+
+[vcs]
+git_modules = "$git_status$git_branch$git_commit$git_state"
+
+[git_branch]
+format = "([ $symbol$branch]($style))"
+style = "fg:text bg:prev_bg"
+symbol = " "
+
+[git_commit]
+only_detached = true
+commit_hash_length = 7
+tag_disabled = false
+tag_symbol = " "
+format = "([  $hash$tag]($style))"
+style = "fg:text bg:prev_bg"
+
+[git_state]
+rebase = ""
+merge = ""
+bisect = ""
+am = ""
+am_or_rebase = ""
+cherry_pick = ""
+revert = ""
+format = "([$state]($style))"
+style = "fg:text bg:prev_bg"
+
+[git_status]
+format = "[](fg:prev_bg bg:green)[](fg:prev_fg bg:prev_bg)[$conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind]($style)"
+style = "fg:text bg:yellow"
+conflicted = " ="
+ahead = " ↱"
+behind = " ↰"
+diverged = " ⇅"
+up_to_date = ""
+untracked = " "
+stashed = ""
+modified = " "
+staged = " ✚"
+renamed = " "
+deleted = " "
+typechanged = " "
+
+[character]
+format = "[ ](bg:prev_bg)[](fg:prev_bg)$symbol"
+success_symbol = " "
+error_symbol = " "
